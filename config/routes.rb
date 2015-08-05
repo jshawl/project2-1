@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root to: "welcome#index"
   get '/sign_out', to: 'welcome#sign_out' #Could I put this someplace else?
+  get '/auth/:provider/callback', to: 'users#oauth_create'
 
   get 'users/sign_in', to: 'users#sign_in'  #Had to move these up because users/show was catching users/sign_in
   post 'users/sign_in', to: 'users#sign_in!'

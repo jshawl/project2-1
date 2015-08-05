@@ -18,6 +18,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def oauth_create
+    @user = User.from_auth( request.env["omniauth.auth"])
+    session[:manager] = nil
+    session[:user] = @user
+    redirect_to @user
+  end
+
   def sign_in
   end
 
