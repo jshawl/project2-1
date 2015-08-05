@@ -23,3 +23,11 @@ main {
   width: 80%;
   margin: auto;
 }
+
+h4 {
+  -webkit-margin-after: 0;
+}
+
+p {
+  -webkit-margin-before: 0;
+}

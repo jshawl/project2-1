@@ -1,7 +1,8 @@
-<h3><%= link_to post.title, post %></h3>
+<h3><%= link_to post.title, post %><%= " " + pluralize(post.bids.size, 'bid') %></h3>
 <p>
   <%= "Listed by #{post.manager.username}" %>
 </p>
+<h4> Description: </h4>
 <p>
-  <span>Description: </span><%= post.description %>
+  <%= post.description %>
 </p>

@@ -1,4 +1,24 @@
 class ManagersController < ApplicationController
+
+  def show
+    @manager = Manager.find(session[:manager]['id'])
+  end
+
+  def new
+    @manager = Manager.new
+  end
+
+  def create
+    @manager = Manager.new(params.require(:manager).permit(:username))
+    if @manager.save
+      redirect_to action: :sign_in
+    else
+      flash[:notice] = "Could not create account..."
+      render :new
+    end
+  end
+
+
   def sign_in
   end
 
@@ -15,7 +35,4 @@ class ManagersController < ApplicationController
     end
   end
 
-  def show
-    @manager = Manager.find(session[:manager]['id'])
-  end
 end
