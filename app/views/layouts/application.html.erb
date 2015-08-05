@@ -8,8 +8,16 @@
   </head>
   <body>
     <header>
+      <%= "manager: #{session[:manager].inspect}" %><br>
+      <%= "user: #{session[:user].inspect}" %><br>
       <%= flash[:notice] %>
-      <%= link_to("Sign out", sign_out_path) if (session[:user]||session[:manager])  %>
+      <nav>
+      <% if (session[:user]||session[:manager]) %>
+        <%= link_to("Sign out", sign_out_path)  %>
+        <%= link_to("Home", (session[:user] ? user_path(session[:user]['id']) : manager_path(session[:manager]['id']))) %>
+      <% end %>
+      </nav>
+
     </header>
     <main>
       <%= yield %>

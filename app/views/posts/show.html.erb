@@ -7,9 +7,16 @@
   <%= @post.description %>
 </p>
 <% if session[:user] %>
-  <h3>Apply</h3>
-  <%= render 'bids/form' %>
+  <% if @post.users.find_by(username: session[:user]['username']) %>
+      <h3>Your bid</h3>
+      <%= render @post.bids.find_by(user_id: session[:user]['id']) %>
+  <% else %>
+    <h3>Apply</h3>
+    <%= render 'bids/form' %>
+  <% end %>
 <% else %>
   <%= link_to "Update Post", edit_post_path(@post.id) %> <br>
   <%= link_to "Delete Post", post_path(@post.id), method: :delete %>
+  <h3>Bids for this position</h3>
+  <%= render @post.bids %>
 <% end %>
