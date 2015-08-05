@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
-  def welcome
-  end
-
   def show
     @user = User.find(session[:user]["id"])
+    @posts = Post.all
   end
 
   def new
@@ -30,6 +28,7 @@ class UsersController < ApplicationController
       redirect_to action: :sign_in
     else
       flash[:notice] = "You're signed in, #{@user.username}!"
+      session[:manager] = nil
       session[:user] = @user
       redirect_to user_path(@user)
     end

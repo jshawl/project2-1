@@ -1,0 +1,15 @@
+<h2><%= @post.title %></h2>
+<h3>Description</h3>
+<p>
+  <%= "posted by #{@post.manager.username}" %>
+</p>
+<p>
+  <%= @post.description %>
+</p>
+<% if session[:user] %>
+  <h3>Apply</h3>
+  <%= render 'bids/form' %>
+<% else %>
+  <%= link_to "Update Post", edit_post_path(@post.id) %> <br>
+  <%= link_to "Delete Post", post_path(@post.id), method: :delete %>
+<% end %>

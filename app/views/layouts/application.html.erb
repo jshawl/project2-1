@@ -9,6 +9,7 @@
   <body>
     <header>
       <%= flash[:notice] %>
+      <%= link_to("Sign out", sign_out_path) if (session[:user]||session[:manager])  %>
     </header>
     <main>
       <%= yield %>

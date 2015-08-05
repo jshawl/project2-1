@@ -1,0 +1,7 @@
+<h1>Hello, <%= @manager.username %></h1>
+
+<h2>Your Posts</h2>
+<%= render @manager.posts  %>
+
+<h2>New Posting</h2>
+<%= render "posts/form" %>

@@ -3,18 +3,20 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root to: "users#welcome"
+  root to: "welcome#index"
+  get '/sign_out', to: 'welcome#sign_out' #Could I put this someplace else?
 
   get 'users/sign_in', to: 'users#sign_in'  #Had to move these up because users/show was catching users/sign_in
   post 'users/sign_in', to: 'users#sign_in!'
-  get 'users/sign_out', to: 'users#sign_out'
 
-  resources :users do
+  get 'managers/sign_in', to: 'managers#sign_in'
+  post 'managers/sign_in', to: 'managers#sign_in!'
+
+  resources :users
+  resources :managers
+
+  resources :posts do
     resources :bids
-  end
-
-  resources :managers do
-    resources :posts
   end
 
 end
