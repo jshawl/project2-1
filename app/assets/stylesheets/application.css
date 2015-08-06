@@ -15,8 +15,10 @@
  */
 
 body {
-  background-color: #F2E6B6;
-  min-height: 600px;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/22/Petrus_%28London%29_Kitchen.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #412A22;
 }
 header {
   background: #8F9E8B;
@@ -26,7 +28,7 @@ main {
   width: 80%;
   margin: 10px auto;
   padding: 20px;
-  background-color: #412A22;
+  background-color: rgba(65, 42, 34, 0.5);
   color: #8F9E8B;
 }
 main a{
