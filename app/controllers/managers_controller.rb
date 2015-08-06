@@ -1,7 +1,6 @@
 class ManagersController < ApplicationController
 
   def show
-    @manager = Manager.find(session[:manager]['id'])
   end
 
   def new
@@ -29,8 +28,8 @@ class ManagersController < ApplicationController
       redirect_to action: :sign_in
     else
       flash[:notice] = "You're signed in, #{@manager.username}!"
-      session[:manager] = @manager
-      session[:user] = nil
+      session[:manager_id] = @manager.id
+      session[:user_id] = nil
       redirect_to manager_path(@manager)
     end
   end

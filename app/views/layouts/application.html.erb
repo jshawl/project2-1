@@ -8,14 +8,17 @@
   </head>
   <body>
     <header>
-      <%= "manager: #{session[:manager].inspect}" %><br>
-      <%= "user: #{session[:user].inspect}" %><br>
-      <%= flash[:notice] %>
       <nav>
-      <% if (session[:user]||session[:manager]) %>
-        <%= link_to("Sign out", sign_out_path)  %>
-        <%= link_to("Home", (session[:user] ? user_path(session[:user]['id']) : manager_path(session[:manager]['id']))) %>
-      <% end %>
+        <ul>
+        <% if (current_user||current_manager) %>
+          <li><%= "Logged in as #{current_user ? current_user.username : current_manager.username}" %></li>
+          <li><%= link_to("Sign out", sign_out_path)  %></li>
+          <li><%= link_to("Home", (current_user ? current_user : current_manager)) %></li>
+        <% else %>
+          <li><%= link_to "Manager Sign In", managers_sign_in_path %></li>
+        <% end %>
+        </ul>
+      <div class='notice'><%= flash[:notice] %></div>
       </nav>
 
     </header>

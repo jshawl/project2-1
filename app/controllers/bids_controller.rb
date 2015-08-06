@@ -6,14 +6,13 @@ class BidsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @user = User.find(session[:user]['id'])
     @bid = bid_params
-    if @post.bids.find_by(user:@user)
-      flash[:notice] = "Already submitted bid for this post"
+    if @post.bids.find_by(user: current_user)
+      flash[:notice] = "#{current_user.username} has already submitted a bid for this post"
       redirect_to @post
     else
-      @post.bids.create(info: @bid[:info], user: @user)
-      redirect_to user_path(@user)
+      @post.bids.create(info: @bid[:info], user: current_user)
+      redirect_to current_user
     end
   end
 

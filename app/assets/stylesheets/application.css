@@ -15,19 +15,50 @@
  */
 
 body {
-  background-color: lightgrey;
-  border: darkgrey dashed 1px;
+  background-color: #F2E6B6;
   min-height: 600px;
+}
+header {
+  background: #8F9E8B;
+  height: 100px;
 }
 main {
   width: 80%;
-  margin: auto;
+  margin: 10px auto;
+  padding: 20px;
+  background-color: #412A22;
+  color: #8F9E8B;
+}
+main a{
+  color: #8F9E8B;
+}
+nav {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+nav ul{
+  padding-left: 0px;
+  border: solid black 2px;
+  border-radius: 10px;
+  background: #5B7876;
+  display: flex;
+  justify-content: flex-end;
+  order: 0;
 }
 
-h4 {
-  -webkit-margin-after: 0;
+nav li{
+  list-style: none;
+  margin: 10px;
 }
 
-p {
-  -webkit-margin-before: 0;
+nav a{
+  color: #8F9E8B;
+}
+.post{
+  border: solid black 1px;
+  color: #292929;
+  background-color: #5B7876;
+  margin:10px;
+  padding: 0 20px;
 }

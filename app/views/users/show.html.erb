@@ -1,12 +1,11 @@
-<h1>Hello, <%= @user.username %></h1>
-<h2><%= "#{@user.username}'s Profile" %></h2>
+<h1><%= "#{@user.username}'s Profile" %></h1>
 
 
 
 <h2><%= "#{@user.username}'s Applications" %></h2>
 <%= render @user.bids  %>
 
-<% if session[:user] %>
+<% if current_user %>
   <h2>Listings</h2>
   <%= render @posts %>
 <% end %>

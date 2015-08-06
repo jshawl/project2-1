@@ -8,12 +8,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @manager = Manager.find(session[:manager]['id'])
-    @post = @manager.posts.new(post_params)
+    @post = current_manager.posts.new(post_params)
     if @post.save
-      redirect_to @manager
+      redirect_to current_manager
     else
-      render @manager
+      flash[:notice] = "Could not create post"
+      render current_manager
     end
    end
 
@@ -27,10 +27,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @manager = Manager.find(session[:manager]["id"]) #I really don't like this. Is there something better?
     @post = Post.find(params[:id])
     @post.destroy #should add some warning
-    redirect_to @manager
+    redirect_to current_manager
   end
 
   private

@@ -1,4 +1,4 @@
 <h4><%= link_to bid.user.username, bid.user %><%= " on #{bid.created_at} for #{bid.post.title}" %></h4>
 <span>Info: </span> <%= bid.info %>
-<%= link_to "Edit", edit_post_bid_path(bid.post, bid) if session[:user] %>
+<%= link_to "Edit", edit_post_bid_path(bid.post, bid) if current_user %>
 <%= link_to "Delete", post_bid_path(bid.post, bid), method: :delete %>
