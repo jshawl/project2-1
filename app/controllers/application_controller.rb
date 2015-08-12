@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private #Why is this private?
+  # so other classes that inherit from application controller 
+  # cant access this code directly - http://stackoverflow.com/questions/3534449/why-does-ruby-have-both-private-and-protected-methods
   def current_user
     User.find( session[:user_id] ) if session[:user_id]
   end

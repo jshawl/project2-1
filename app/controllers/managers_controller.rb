@@ -9,6 +9,7 @@ class ManagersController < ApplicationController
 
   def create
     @manager = Manager.new(params.require(:manager).permit(:username))
+    # move the above to strong_params
     if @manager.save
       redirect_to action: :sign_in
     else
@@ -23,7 +24,7 @@ class ManagersController < ApplicationController
 
   def sign_in!
     @manager = Manager.find_by(username: params[:username])
-    if !@manager
+    if !@manager # unless @manager
       flash[:notice] = "This manager doesn't exist!"
       redirect_to action: :sign_in
     else

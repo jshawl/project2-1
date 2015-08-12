@@ -1,4 +1,5 @@
 <%= form_for [@post, (@bid || @post.bids.build)] do |f| %>
+<!-- can you move the || to a controller action -->
   <p>
     <%= f.label :info %><br>
     <%= f.text_area :info %>

@@ -1,4 +1,5 @@
 <%= form_for (@post || current_manager.posts.build) do |f| %>  <%# this or is avoiding the new, empty post being rendered in the manager's show page where all current posts are listed above the form partial %>
+<!-- can this logic be moved to a controller action -->
   <%= f.label :title %><br>
   <%= f.text_field :title %><br>
 

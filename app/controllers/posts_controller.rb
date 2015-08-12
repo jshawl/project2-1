@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    # consider using a before_action to set this instance variable
   end
 
   def create
@@ -29,6 +30,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy #should add some warning
+    # or use data-confirm - http://stackoverflow.com/questions/16668949/how-to-add-confirm-message-with-link-to-ruby-on-rails
     redirect_to current_manager
   end
 

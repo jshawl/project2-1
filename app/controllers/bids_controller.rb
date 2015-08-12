@@ -8,6 +8,7 @@ class BidsController < ApplicationController
     @post = Post.find(params[:post_id])
     @bid = bid_params
     if @post.bids.find_by(user: current_user)
+      # what if there is no current user?
       flash[:notice] = "#{current_user.username} has already submitted a bid for this post"
       redirect_to @post
     else

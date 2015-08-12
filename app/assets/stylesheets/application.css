@@ -16,6 +16,7 @@
 
 body {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/22/Petrus_%28London%29_Kitchen.jpg);
+  /* remember to download assets incase the above url breaks*/
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #412A22;
@@ -23,6 +24,7 @@ body {
 header {
   background: #8F9E8B;
   height: 100px;
+  /* use padding to space out the content instead of a fixed height */
 }
 main {
   width: 80%;
@@ -35,7 +37,7 @@ main a{
   color: #8F9E8B;
 }
 nav {
-  display: flex;
+  display: flex; /* Excellent to see flexbox!! */
   align-items: flex-end;
   flex-direction: column;
 }
